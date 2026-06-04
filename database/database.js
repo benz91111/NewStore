@@ -18,6 +18,7 @@ db.serialize(() => {
         price REAL NOT NULL,
         description TEXT,
         channel_id TEXT,
+        category TEXT DEFAULT 'geral',
         stock INTEGER DEFAULT 0,
         content TEXT NOT NULL,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
