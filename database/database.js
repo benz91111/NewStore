@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 const { join } = require('path');
 
-const dbPath = join(__dirname, 'shop.db');
+const dbPath = '/tmp/shop.db';
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.error('Erro ao conectar ao banco de dados:', err.message);

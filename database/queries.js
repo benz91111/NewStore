@@ -280,37 +280,11 @@ function getLogs(limit = 50) {
 }
 
 
-
-function getProductsByChannel(channelId) {
-    return new Promise((resolve, reject) => {
-        db.all(`SELECT * FROM products WHERE channel_id = ? ORDER BY id DESC`, [channelId], (err, rows) => {
-            if (err) return reject(err);
-            resolve(rows);
-        });
-    });
-}
-
-function addProductWithChannel(name, price, description, content, channelId) {
-    return new Promise((resolve, reject) => {
-        db.run(
-            `INSERT INTO products (name, price, description, channel_id, stock, content) VALUES (?, ?, ?, ?, ?, ?)`,
-            [name, price, description, channelId, 1, content],
-            function(err) {
-                if (err) return reject(err);
-                db.run(`INSERT INTO stock (product_id, content) VALUES (?, ?)`, [this.lastID, content], (err2) => {
-                    if (err2) return reject(err2);
-                    resolve(this.lastID);
-                });
-            }
-        );
-    });
-}
-
 module.exports = {
     // Produtos
     addProduct, removeProduct, editProduct, getProduct, getAllProducts,
     addStock, getAvailableStock, markStockAsSold, updateProductStock,
-    getProductsByChannel, addProductWithChannel,
+    
     // Compras
     createPurchase, getPurchase, getUserPendingPurchase, confirmPurchase,
     deliverPurchase, getPurchaseHistory, getAllPurchases,
