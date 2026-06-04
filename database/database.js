@@ -1,15 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 const { join } = require('path');
 
-const dbPath = '/tmp/shop.db';
-// Apagar banco antigo se existir (forçar recriação com nova estrutura)
-try {
-    if (require('fs').existsSync(dbPath)) {
-        require('fs').unlinkSync(dbPath);
-        console.log('🗑️ Banco antigo removido, recriando...');
-    }
-} catch (e) {}
-
+const dbPath = '/tmp/shop_v2.db';
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.error('Erro ao conectar ao banco de dados:', err.message);
