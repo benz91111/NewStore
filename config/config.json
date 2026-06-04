@@ -1,0 +1,41 @@
+{
+  "token": "SEU_TOKEN_AQUI",
+  "clientId": "SEU_CLIENT_ID_AQUI",
+  "guildId": "SEU_GUILD_ID_AQUI",
+  "pixKey": "sua-chave-pix@exemplo.com",
+  "pixKeyType": "email",
+  "pixHolderName": "Sua Loja Digital",
+  "categories": {
+    "tickets": "COLE_ID_CATEGORIA_TICKETS_AQUI",
+    "logs": "COLE_ID_CATEGORIA_LOGS_AQUI"
+  },
+  "roles": {
+    "staff": "COLE_ID_CARGO_STAFF_AQUI",
+    "client": "COLE_ID_CARGO_CLIENTE_AQUI"
+  },
+  "channels": {
+    "logs": "COLE_ID_CANAL_LOGS_AQUI",
+    "salesPanel": "COLE_ID_CANAL_LOJA_AQUI"
+  },
+  "colors": {
+    "primary": "#5865F2",
+    "success": "#57F287",
+    "danger": "#ED4245",
+    "warning": "#FEE75C",
+    "info": "#5865F2"
+  },
+  "emojis": {
+    "cart": "🛒",
+    "money": "💰",
+    "check": "✅",
+    "cross": "❌",
+    "package": "📦",
+    "ticket": "🎫",
+    "staff": "👑",
+    "client": "🎁",
+    "pix": "🏦",
+    "copy": "📋",
+    "alert": "⚠️",
+    "loading": "⏳"
+  }
+}

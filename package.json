@@ -1,0 +1,21 @@
+{
+  "name": "discord-sales-bot",
+  "version": "1.0.0",
+  "description": "Bot de vendas para Discord com PIX manual e entrega automática",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["discord", "bot", "sales", "pix", "shop"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "sqlite3": "^5.1.6",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
