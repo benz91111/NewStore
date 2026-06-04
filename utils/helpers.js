@@ -11,6 +11,11 @@ function hasClientRole(member) {
 }
 
 async function createTicketChannel(guild, user, purchaseId) {
+    // Verificar se cargo staff está configurado
+    const staffRoleId = config.roles.staff;
+    if (!staffRoleId || staffRoleId.includes('AQUI')) {
+        throw new Error('Cargo Staff não configurado no config.json');
+    }
     const category = guild.channels.cache.get(config.categories.tickets);
     return await guild.channels.create({
         name: `ticket-${user.username}-${purchaseId}`,

@@ -10,7 +10,7 @@ module.exports = {
         const { customId, user, guild } = interaction;
 
         if (customId === 'buy_product') {
-            const products = await db.getProductsByChannel(interaction.channel.id);
+            const products = await db.getAllProducts();
             const available = products.filter(p => p.stock > 0);
             if (available.length === 0) {
                 return interaction.reply({ embeds: [embeds.errorEmbed('Sem Estoque', 'Todos os produtos estão esgotados.')], flags: MessageFlags.Ephemeral });
@@ -32,7 +32,8 @@ module.exports = {
             await new Promise((resolve, reject) => {
                 const sqlite3 = require('sqlite3').verbose();
                 const path = require('path');
-                const dbConn = new sqlite3.Database(path.join(__dirname, '../database/shop.db'));
+                const dbPath = '/tmp/shop.db';
+                const dbConn = new sqlite3.Database(dbPath);
                 dbConn.run(`UPDATE purchases SET ticket_channel_id = ? WHERE id = ?`, [ticketChannel.id, purchase.id], function(err) { dbConn.close(); err ? reject(err) : resolve(); });
             });
             await db.createTicket(ticketChannel.id, user.id, user.tag, purchase.id);

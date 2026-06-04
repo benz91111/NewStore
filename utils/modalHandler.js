@@ -65,7 +65,7 @@ module.exports = {
             }
 
             try {
-                const productId = await db.addProductWithChannel(name, price, description, content, channelId);
+                const productId = await db.addProduct(name, price, description, content);
 
                 // Enviar embed do produto no canal
                 const product = await db.getProduct(productId);
